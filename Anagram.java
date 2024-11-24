@@ -58,8 +58,9 @@ public class Anagram {
 	public static String preProcess(String str) {
 		String finalstr = "";
 		str = str.toLowerCase();
+		System.out.println(str);
 		for(int i = 0;i<str.length();i++){
-			if (str.charAt(i) != ' ') {
+			if ((str.charAt(i) > 65 && str.charAt(i) < 122) || str.charAt(i) == ' ') {
 				finalstr += str.charAt(i);
 			}
 		}
