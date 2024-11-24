@@ -96,12 +96,13 @@ public class Algebra {
 				counter++;
 				x1 = minus(x1, x2);
 			}
-			if ((numerator > 0 && denominator > 0) || (numerator < 0 && denominator < 0)) {
+			if ((numerator > 0 && denominator > 0) || (numerator < 0 && denominator < 0)){
 				return counter;
 			}
 			if((numerator < 0 && denominator > 0) || (numerator > 0 && denominator < 0)){
 				return -counter;
 			}
+			return counter;
 		}
 		else {
 			return -1;
