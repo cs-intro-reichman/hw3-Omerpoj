@@ -25,25 +25,67 @@ public class Anagram {
 		}
 		System.out.println(pass ? "test passed" : "test Failed");
 	}  
-
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		// Replace the following statement with your code
-		return false;
+		str1 = preProcess(str1);
+		str2 = preProcess(str2);
+		if (str1.length() != str2.length()) {
+			return false;
+		}
+		for(int i = 0;i < str1.length();i++)
+		{
+			int counter1 = 0;
+			int counter2 = 0;
+			for(int j = 0;j<str1.length();j++){
+				if (str1.charAt(i) == str1.charAt(j)) {
+					counter1++;
+				}
+				if (str1.charAt(i) == str2.charAt(j)) {
+					counter2++;
+				}
+			}
+			if (counter1 != counter2) {
+				
+				return false;
+			}
+		}
+		return true;
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
-	public static String preProcess(String str) {
-		// Replace the following statement with your code
-		return "";
+	private static String preProcess(String str) {
+		String finalstr = "";
+		str = str.toLowerCase();
+		for(int i = 0;i<str.length();i++){
+			if (str.charAt(i) != ' ') {
+				finalstr += str.charAt(i);
+			}
+		}
+
+		
+		return finalstr;
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
-		// Replace the following statement with your code
-		return "";
-	}
+		String finalStr = "";
+        String notUsed = str;
+        while (notUsed.length() > 0) {
+			double randIndex = (int)(notUsed.length() * Math.random());
+            char c = notUsed.charAt((int)randIndex);
+            finalStr += c;
+            String newRemaining = "";
+            for (int i = 0; i < notUsed.length(); i++) {
+                if (i != randIndex) {
+                    newRemaining += notUsed.charAt(i);
+                }
+            }
+            notUsed = newRemaining;
+        }
+        return finalStr;
+    }
+
 }
