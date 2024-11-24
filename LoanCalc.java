@@ -40,17 +40,16 @@ public class LoanCalc {
 	// the number of periods (n), and epsilon, the approximation's accuracy
 	// Side effect: modifies the class variable iterationCounter.
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) { 
-		double payment = 0;
-		boolean flag = false;
-		while (payment <= loan && !flag) {
-			payment += epsilon;
-			double target = endBalance(loan, rate, n, payment);
+		double payment = 0; 
+		while (payment <= loan) { 
+			double balance = endBalance(loan, rate, n, payment);
 			iterationCounter++;
-			if (Math.abs(target) <= epsilon) {
-				flag = true;
+			if (Math.abs(balance) < epsilon) {
+				return payment;
 			}
+			payment += epsilon;
 		}
-		return payment;
+		return -1;
     }
     
     // Uses bisection search to compute an approximation of the periodical payment 

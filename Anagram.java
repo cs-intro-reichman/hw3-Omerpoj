@@ -37,10 +37,10 @@ public class Anagram {
 			int counter1 = 0;
 			int counter2 = 0;
 			for(int j = 0;j<str1.length();j++){
-				if (str1.charAt(i) == str1.charAt(j) && str1.charAt(i) != ' ') {
+				if ((str1.charAt(i) == str1.charAt(j)) && (str1.charAt(i) != ' ')) {
 					counter1++;
 				}
-				if (str1.charAt(i) == str2.charAt(j) && str1.charAt(i) != ' ') {
+				if ((str1.charAt(i) == str2.charAt(j)) && (str1.charAt(i) != ' ')) {
 					counter2++;
 				}
 			}
