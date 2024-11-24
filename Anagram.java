@@ -37,10 +37,10 @@ public class Anagram {
 			int counter1 = 0;
 			int counter2 = 0;
 			for(int j = 0;j<str1.length();j++){
-				if (str1.charAt(i) == str1.charAt(j)) {
+				if (str1.charAt(i) == str1.charAt(j) && str1.charAt(i) != ' ') {
 					counter1++;
 				}
-				if (str1.charAt(i) == str2.charAt(j)) {
+				if (str1.charAt(i) == str2.charAt(j) && str1.charAt(i) != ' ') {
 					counter2++;
 				}
 			}
@@ -58,7 +58,6 @@ public class Anagram {
 	public static String preProcess(String str) {
 		String finalstr = "";
 		str = str.toLowerCase();
-		System.out.println(str);
 		for(int i = 0;i<str.length();i++){
 			if ((str.charAt(i) > 65 && str.charAt(i) < 122) || str.charAt(i) == ' ') {
 				finalstr += str.charAt(i);
