@@ -72,12 +72,15 @@ public class Algebra {
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
 		int original = x;
-		if (n >= 0) {
+		if (n == 0) {
+			return 1;
+		}
+		if (n > 0) {
 			for(int i = 0;i < n-1;i++){
 				x = times(x, original);
 			}
 		}
-		if(x < 0 || mod(n,2) != 0){
+		if(x < 0 && mod(n,2) != 0){
 			return -x;
 		}
 		return x;
