@@ -29,14 +29,25 @@ public class Anagram {
 	public static boolean isAnagram(String str1, String str2) {
 		str1 = preProcess(str1);
 		str2 = preProcess(str2);
-		if (str1.length() != str2.length()) {
-			return false;
+		String mid1 = "";
+		String mid2 = "";
+		for(int i = 0;i < str1.length();i++){
+			if(str1.charAt(i) == ' '){
+				mid1 += str1.charAt(i);
+			}
 		}
+		for(int i = 0;i < str2.length();i++){
+			if(str2.charAt(i) == ' '){
+				mid2 += str2.charAt(i);
+			}
+		}
+		str1 = mid1;
+		str2 = mid2;
 		for(int i = 0;i < str1.length();i++)
 		{
 			int counter1 = 0;
 			int counter2 = 0;
-			for(int j = 0;j<str1.length();j++){
+			for(int j = 0;j < str1.length();j++){
 				if ((str1.charAt(i) == str1.charAt(j)) && (str1.charAt(i) != ' ')) {
 					counter1++;
 				}
