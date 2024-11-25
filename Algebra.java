@@ -66,7 +66,7 @@ public class Algebra {
 		if(x1 == 0 || x2 == 0){
 			return 0;
 		}
-		return -x1;
+		return minus(x1, plus(x1,x1));
 	}
 
 	// Returns x^n (for n >= 0)
@@ -81,7 +81,7 @@ public class Algebra {
 			}
 		}
 		if(x < 0 && mod(n,2) != 0){
-			return -x;
+			return minus(x, plus(x,x));
 		}
 		return x;
 	}
