@@ -100,7 +100,7 @@ public class Algebra {
 				return counter;
 			}
 			if((numerator < 0 && denominator > 0) || (numerator > 0 && denominator < 0)){
-				return -counter;
+				return minus(counter, plus(counter, counter));
 			}
 			return counter;
 		}
