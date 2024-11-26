@@ -7,7 +7,7 @@ public class LoanCalc {
 	// Gets the loan data and computes the periodical payment.
     // Expects to get three command-line arguments: loan amount (double),
     // interest rate (double, as a percentage), and number of payments (int).  
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
 		// Gets the loan data
 		double loan = Double.parseDouble(args[0]);
 		double rate = Double.parseDouble(args[1]);
@@ -40,14 +40,14 @@ public class LoanCalc {
 	// the number of periods (n), and epsilon, the approximation's accuracy
 	// Side effect: modifies the class variable iterationCounter.
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) { 
-		double payment = 0; 
-		while (payment <= loan) { 
-			payment += epsilon;
+		double payment = loan/n; 
+		while (Math.abs(payment) > epsilon) { 
 			double balance = endBalance(loan, rate, n, payment);
-			iterationCounter++;
+			payment += epsilon;
 			if(balance <= epsilon){
 				return payment;
 			}
+			iterationCounter++;
 		}
 		return payment;
     }
