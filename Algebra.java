@@ -56,6 +56,9 @@ public class Algebra {
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {//לתקן
+		if (x1 == 0 || x2 == 0) {
+			return 0;
+		}
 		if (x1 > 0 && x2 > 0 || x1 < 0 && x2 < 0) {
 			int original = x1;
 			for(int i = 0;i < x2 - 1;i++) {
