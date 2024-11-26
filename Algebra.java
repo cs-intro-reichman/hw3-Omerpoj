@@ -57,27 +57,23 @@ public class Algebra {
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {//לתקן
 		int original = x1;
-		if (x2 < 0) {
-			x2 = plus(x2, plus(x2, x2));
-		}
-		if (x1 > 0) {
-			for(int i = 0;i < x2 - 1;i++) {
-				x1 = plus(x1,original);
-			}
-		}
-		if (x1 < 0) {
-			for(int i = 0;i < x2 - 1;i++) {
-				x1 = minus(x1,original);
-			}
-		}
-		if ((original > 0 && x2 > 0) || (original < 0 && x2 < 0)) {
-			return x1;
-		}
-		if(x1 == 0 || x2 == 0){
+		if (x1 == 0 || x2 == 0) {
 			return 0;
 		}
-		System.out.println(" hi "+minus(x1, plus(x1,x1)));
-		return minus(x1, plus(x1,x1));
+		if (x1 > 0 && x2 < 0 || x1 < 0 && x2 > 0) {
+			System.out.print("negative");
+			x1 = minus(x1, plus(x1, x1));
+			System.out.println(x1);
+			for(int i = 0;i < x2;i++){
+				x1 = minus(x1, original);
+			}
+		}
+		if (original > 0 && x2 > 0 || original < 0 && x2 < 0) {
+			for(int i = 0;i < x2;i++){
+				x1 = plus(x1, original);
+			}
+		}
+		return x1;
 	}
 
 	// Returns x^n (for n >= 0)
@@ -92,7 +88,7 @@ public class Algebra {
 			}
 		}
 		if(x < 0 && mod(n,2) != 0){
-			return minus(x, plus(x,x));
+			return sqrt(x);
 		}
 		return x;
 	}
