@@ -70,7 +70,7 @@ public class Anagram {
 		String finalstr = "";
 		str = str.toLowerCase();
 		for(int i = 0;i<str.length();i++){
-			if (str.charAt(i) > 65 && str.charAt(i) < 122) {
+			if (str.charAt(i) > 65 && str.charAt(i) < 122 || str.charAt(i) == ' ') {
 				finalstr += str.charAt(i);
 			}
 		}
